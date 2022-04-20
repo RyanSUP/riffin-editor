@@ -63,6 +63,20 @@ body {
   color: var(--frost0-color);
 }
 
+#inputGrid {
+  z-index: 600;
+  background: transparent;
+  color: var(--frost0-color);
+}
+
+#dashGrid {
+  color: #434C5E;
+  position: absolute;
+  z-index: -1;
+  margin: 0;
+}
+
+
 textarea {
     margin: 45px 0;
 }
@@ -76,6 +90,8 @@ textarea, .text-input {
     outline: none;
     resize: none;
 }
+
+/* Utilities */
 
 .flex-col {
   display: flex;
