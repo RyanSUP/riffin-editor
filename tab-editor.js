@@ -114,7 +114,7 @@ inputArea.addEventListener('keydown', (evt) => {
     let cursorPos = inputArea.selectionStart
     if(cursorPos === 40 || cursorPos === 81 || cursorPos === 122 || cursorPos === 163 || cursorPos === 204) {
       cursorPos += 1
-    } else if ( cursorPos === 245) {
+    } else if (cursorPos === 245) {
       return
     }
     inputArea.value = replaceCharAt(inputArea.value, cursorPos, evt.code.slice(3,4).toLowerCase())
