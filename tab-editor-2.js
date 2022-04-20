@@ -49,34 +49,32 @@ const fillTextArea = (textArea, c) => {
   }
 }
 
-const cursorIsOnLastColumn = (cursorPosition) => lastColumnIndexes.find(column => column === cursorPosition)
-const resetSelection = (cursorPosition) => {
-  inputGrid.selectionStart = cursorPosition + 1
-  inputGrid.selectionEnd = cursorPosition + 1
+const updateCursorPosition = (newPosition) => {
+  inputGrid.selectionStart = newPosition
+  inputGrid.selectionEnd = newPosition
 }
 
-const insertOnInputGrid = (currentValue, cursorPosition, character) => {
+const updateGrid = (currentValue, cursorPosition, character) => {
   let currentValueAsArray =  [...currentValue]
   currentValueAsArray[cursorPosition] = character
   return currentValueAsArray.join('')
 }
-// TODO Insert a dash at position
-const insertOnDashGrid = () => null
-// TODO Insert space at position
-const insertSpaceOnInputGrid = () => null
 
 function handleAddCharacter(character) {
   let cursorPosition = inputGrid.selectionStart
   if(cursorPosition === LAST_INPUT_POSITION) return
-  if(cursorIsOnLastColumn(cursorPosition)) cursorPosition += 1
-  inputGrid.value = insertOnInputGrid(inputGrid.value, cursorPosition, character)
-  dashGrid.value = insertOnInputGrid(dashGrid.value, cursorPosition, " ")
-  resetSelection(cursorPosition)
+  if(lastColumnIndexes.includes(cursorPosition)) return
+  inputGrid.value = updateGrid(inputGrid.value, cursorPosition, character)
+  dashGrid.value = updateGrid(dashGrid.value, cursorPosition, " ")
+  updateCursorPosition(cursorPosition + 1)
 }
 
-// TODO Handle remove character
 function handleRemoveCharacter() {
-  console.log('remove')
+  let cursorPosition = inputGrid.selectionStart - 1
+  if(firstColumnIndexes.includes(cursorPosition)) return
+  inputGrid.value = updateGrid(inputGrid.value, cursorPosition, " ")
+  dashGrid.value = updateGrid(dashGrid.value, cursorPosition, "-")
+  updateCursorPosition(cursorPosition)
 }
 
 function handleDuplicate() {
