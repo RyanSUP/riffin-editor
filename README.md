@@ -1,8 +1,15 @@
 # 🎸 RIFFIN TAB EDITOR 🌊
 
-The custom tablature editor I built for my RIFFIN project is now open source! This editor takes the hassle out of managing dashes and has a duplicate chord feature.
+The custom tablature editor I built for my RIFFIN project is now open source! This editor takes the hassle out of managing dashes and has a duplicate chord feature. The double-layered textarea emphasizes what matters, the tablature, and allows for flexible styling.
 
 Plug and play. Hack and slash. Enjoy!
+
+Demo Style:
+![DemoEditor](./demo-images/demo-styled.png)
+
+Naked editor:
+![nakedEditor](./demo-images/demo.png)
+
 
 ## How to use the editor in your projects
 1) Add the riffin-editor.js script to \<head>
