@@ -4,22 +4,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css" />
-  <script defer src="./tab-editor-2.js"></script>
+  <link rel="stylesheet" href="./demo-style.css" />
+  <link rel="stylesheet" href="./riffin-editor-style.css" />
+  <script defer src="./riffin-editor.js"></script>
   <title>Riffin Editor</title>
 </head>
 <body>
- 
-<main>
   <div class="flex-col center lg">
-    <form autocomplete="off">    
-      <div class="tab-editor margin-xlg">
-        <textarea cols="40" rows="6" maxlength="251" id="dashGrid"></textarea>
-        <textarea cols="40" rows="6" maxlength="251" id="inputGrid"></textarea>
-      </div>    
-    </form>
+    <div id="riffin-editor">
+      <textarea cols="40" rows="6" maxlength="251" id="riffin-editor-dashGrid"></textarea>
+      <textarea cols="40" rows="6" maxlength="251" id="riffin-editor-inputGrid"></textarea>
+    </div>    
   </div>
-</main>
-
 </body>
 </html>

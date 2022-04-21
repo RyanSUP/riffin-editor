@@ -1,14 +1,14 @@
-let inputGrid = document.querySelector('#inputGrid')
-let dashGrid = document.querySelector('#dashGrid')
+/* ----------- CONSTANTS ------------ */
 
-// TODO: CALCULATE THIS
+const inputGrid = document.querySelector('#riffin-editor-inputGrid')
+const dashGrid = document.querySelector('#riffin-editor-dashGrid')
+
 const firstColumnIndexes = [0, 41, 82, 123, 164, 205]
 const lastColumnIndexes =  [40, 81, 122, 163, 204]
 const secondToLastCol = [39, 80, 121, 162, 203]
 const LAST_INPUT_POSITION = 245
 
 const legalCharacters = {
-  " ": handleAddCharacter,
   "~": handleAddCharacter, // vibrato
   "/": handleAddCharacter, // slide
   "^": handleAddCharacter, // bend
@@ -39,7 +39,7 @@ const arrows = {
 /* ----------- UTILITY FUNCTIONS ------------ */
 
 const fillTextArea = (textArea, c) => {
-  for(let i = 0; i < 251; i++) {
+  for(let i = 0; i < 240; i++) {
     if(i%40 === 0 && i !== 0) textArea.value += '\n'
     textArea.value += c
   }
@@ -87,12 +87,14 @@ const getPositionsToDuplicate = (cursorPosition) => {
   return positions
 }
 /* ----------- FUNCTIONS ------------ */
+
 const init = () => {
   fillTextArea(inputGrid, ' ')
   fillTextArea(dashGrid, '-')
 }
 
 /* ----------- EVENT HANDLERS ------------ */
+
 function handleAddCharacter(character) {
   let cursorPosition = inputGrid.selectionStart
   if(cursorPosition === LAST_INPUT_POSITION) return
@@ -127,6 +129,7 @@ function handleDuplicate() {
 }
 
 /* ----------- LISTENERS ------------ */
+
 inputGrid.addEventListener('keydown', e => {
   if(arrows[e.key]) return // Arrows can perform default action
   e.preventDefault()
@@ -135,10 +138,8 @@ inputGrid.addEventListener('keydown', e => {
   }
 })
 
-inputGrid.addEventListener('paste', e => {
-  e.preventDefault();
-});
-
+inputGrid.addEventListener('paste', e => e.preventDefault())
 
 /* ----------- MAIN ------------ */
+
 init()

@@ -43,36 +43,12 @@ body {
 }
 
 
-/* Tab editor */
-
-#tabGrid {
-  color: #434C5E;
-  position: absolute;
-  z-index: -1;
-  margin: 0;
-}
-
-.tab-editor {
-  position: relative;
-  z-index: 400;
-}
-
-#rawInput {
-  z-index: 600;
-  background: transparent;
+#riffin-editor-inputGrid {
   color: var(--frost0-color);
 }
 
-#inputGrid {
-  z-index: 600;
-  background: transparent;
-  color: var(--frost0-color);
-}
-
-#dashGrid {
+#riffin-editor-dashGrid {
   color: #434C5E;
-  position: absolute;
-  z-index: -1;
   margin: 0;
 }
 
@@ -106,8 +82,4 @@ textarea, .text-input {
 
 .lg {
   font-size: 2.8rem;
-}
-
-.margin-xlg {
-  margin: 100px;
 }
